@@ -1,0 +1,17 @@
+{
+  "name": "react-ajax-node",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev:server": "nodemon -L"
+  },
+  "author": "seb",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
+    "nodemon": "^1.18.4"
+  }
+}
