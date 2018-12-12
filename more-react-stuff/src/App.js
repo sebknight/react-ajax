@@ -12,7 +12,9 @@ class App extends Component {
   }
 //this function runs if there are no other errors, call is successful
   componentDidMount() {
-    fetch("http://192.168.33.10:5000/getjson")
+    var apiURL = process.env.REACT_APP_API_URL;
+    console.log(apiURL);
+    fetch(process.env.REACT_APP_API_URL)
     //turn response to json
       .then(res => res.json())
       .then(
@@ -35,25 +37,29 @@ class App extends Component {
           });
         }
       )
-  }
-
+      }
   render() {
+  
     const {
       error,
       isLoaded,
       items
     } = this.state;
     if (error) {
-      return <div > Error: {
+      return <div> Error: {
         error.message
-      } < /div>;
+      } </div>;
     } else if(!isLoaded) {
       return <div> Loading... </div>;
     } else {
-      return ( <ul> {
+      return ( 
+        <div>
+          <h1>API url is {process.env.REACT_APP_API_URL} </h1>
+         <ul> {
           items.map(items => ( <li key={items.id}> {items.first_name} {items.last_name}</li>
           ))} 
           </ul>
+        </div>
       );
     }
   }
